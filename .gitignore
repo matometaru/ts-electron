@@ -1,0 +1,6 @@
+config.js
+package-lock.json
+yarn.lock
+yarn-error.log
+src/config
+dist
