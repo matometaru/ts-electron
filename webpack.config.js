@@ -1,7 +1,8 @@
 module.exports = {
   mode: 'development',
   entry: {
-    "main/index": "./src/js/main/index.ts"
+    "js/main/index": "./src/js/main/index.ts",
+    "js/renderer/index": "./src/js/renderer/index.tsx"
   },
   output: {
     filename: '[name].js'
@@ -9,13 +10,13 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
         use: 'ts-loader'
       }
     ]
   },
   resolve: {
-    extensions: ['.ts', '.tsx']
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
   }
 };

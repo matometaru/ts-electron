@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es2017" // es5, es6など環境に合わせる。今回はNodeが対象なのでes2017。
+    "target": "es2017", // es5, es6など環境に合わせる。今回はNodeが対象なのでes2017。
+    "jsx": "react"
   },
   "include": [
     "./src/**/*.ts"
