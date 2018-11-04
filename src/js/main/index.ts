@@ -1,18 +1,19 @@
-const test1 = () => {
-  return new Promise((resolve, reject) => {
-    resolve("test1");
-  });
-}
+import { app } from "electron";
+import createWindow from "./createWindow";
 
-const test2 = () => {
-  return new Promise((resolve, reject) => {
-    resolve("test2");
-  });
-}
+// Electronが起動し、初期化処理が完了したとき
+app.on("ready", () => {
+  createWindow();
+});
 
-(async () => {
-  let test = "";
-  test += await test2();
-  test += await test1();
-  console.log(test);
-})();
+// すべてのウィンドウが閉じられたとき
+app.on("window-all-closed", () => {
+
+});
+
+// macOS限定のアクティブ処理
+app.on("activate", (_e, hasVisibleWindows) => {
+  if (!hasVisibleWindows) {
+    createWindow();
+  }
+});
