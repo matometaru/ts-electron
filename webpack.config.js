@@ -7,6 +7,7 @@ const baseConfig =  {
     __dirname: false
   },
   output: {
+    publicPath: 'http://localhost:8088/',
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist/')
   },
@@ -54,7 +55,7 @@ const baseConfig =  {
 
 const mainConfig = Object.assign({}, baseConfig, {
   name: 'main',
-  // target: 'electron-main',
+  target: 'electron-main',
   entry: {
     "js/main/index": "./src/js/main/index.ts"
   }
@@ -62,10 +63,10 @@ const mainConfig = Object.assign({}, baseConfig, {
 
 const rendererConfig = Object.assign({}, baseConfig, {
   name: 'renderer',
-  // target: 'electron-renderer',
+  target: 'electron-renderer',
   entry: {
     "js/renderer/index": "./src/js/renderer/index.tsx"
   }
 });
 
-module.exports = [rendererConfig];
+module.exports = [mainConfig, rendererConfig];
